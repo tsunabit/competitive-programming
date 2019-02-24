@@ -1,0 +1,18 @@
+import java.util.*;
+import java.util.stream.Stream;
+import java.time.*;
+import java.time.format.*;
+
+public class No646 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < n -i; j++) {
+				System.out.print(n);
+			}
+			System.out.println("");
+
+		}
+	}
+}

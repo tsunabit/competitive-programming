@@ -1,0 +1,18 @@
+
+ソースコードが以下の場合
+
+// HelloWorld.java
+public class HelloWorld
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello world!" );
+    }
+}
+
+
+以下の手順でjavaファイルをコンパイルし、実行する
+
+>javac HelloWorld.java
+
+>java HelloWorld 
