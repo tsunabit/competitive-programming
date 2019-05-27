@@ -6,13 +6,15 @@ public class No236 {
     public static void main(String[] args) {
         // 標準入力から読み込む際に、Scannerオブジェクトを使う。
         Scanner s = new Scanner(System.in);
-        int a = s.nextInt();
-        int b = s.nextInt();
-        int x = s.nextInt();
-        int y = s.nextInt();
+        double a = s.nextDouble();
+        double b = s.nextDouble();
+        double x = s.nextDouble();
+        double y = s.nextDouble();
         
-        System.out.println(((a * x) + (b * y)) / (a + b));
-        
-        
+        if((x / a) <= (y / b)) {
+        	System.out.println(((a + b) * x) / a);
+        }else {
+        	System.out.println(((a + b) * y) / b);
+        }
     }
 }
