@@ -18,7 +18,7 @@ public class No401 {
         int gyou = 0, retu = 0;
         int[][] masu = new int[n + 1][n + 1];
         while(count <= (n + 1) * (n + 1)) {
-//        	masu[gyou][retu] = count;
+        	// masu[gyou][retu] = count;
         	// 右へ移動
         	if(d % 4 == 0) {
         		masu[gyou][retu] = count;
@@ -46,22 +46,32 @@ public class No401 {
         		masu[gyou][retu] = count;
         		System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
         		retu--;
-        		// dの判定
+        		// dの判定	
         		if(retu == 0) {
+        			count++;
+        			masu[gyou][retu] = count;
+        			System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
+        			gyou--;
         			d++;
         		}else if(retu > 0 && masu[gyou][retu - 1] != 0) {
         			d++;
         		}
         	// 上へ移動
-        	}else if(d % 4 == 4) {
-        		masu[gyou][retu] = count;
-        		System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
-        		gyou--;
+        	}else if(d % 4 == 3) {
         		// dの判定
         		if(gyou == 0) {
+        			count++;
+        			masu[gyou][retu] = count;
+        			System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
         			d++;
         		}else if(gyou > 0 && masu[gyou - 1][retu] != 0) {
+        			System.out.println("koko");
+        			retu++;
         			d++;
+        		}else {
+        			masu[gyou][retu] = count;
+            		System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
+            		gyou--;
         		}
         	}
         	count++;
