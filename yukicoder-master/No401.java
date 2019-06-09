@@ -22,7 +22,7 @@ public class No401 {
         	// 右へ移動
         	if(d % 4 == 0) {
         		masu[gyou][retu] = count;
-        		System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
+//        		System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
         		retu++;
         		// dの判定
         		if(retu == n) {
@@ -33,7 +33,7 @@ public class No401 {
         	// 下へ移動
         	}else if(d % 4 == 1) {
         		masu[gyou][retu] = count;
-        		System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
+//        		System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
         		gyou++;
         		// dの判定
         		if(gyou == n) {
@@ -44,13 +44,13 @@ public class No401 {
         	// 左へ移動
         	}else if(d % 4 == 2) {
         		masu[gyou][retu] = count;
-        		System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
+//        		System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
         		retu--;
         		// dの判定	
         		if(retu == 0) {
         			count++;
         			masu[gyou][retu] = count;
-        			System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
+//        			System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
         			gyou--;
         			d++;
         		}else if(retu > 0 && masu[gyou][retu - 1] != 0) {
@@ -62,15 +62,17 @@ public class No401 {
         		if(gyou == 0) {
         			count++;
         			masu[gyou][retu] = count;
-        			System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
+//        			System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
         			d++;
         		}else if(gyou > 0 && masu[gyou - 1][retu] != 0) {
-        			System.out.println("koko");
+//        			System.out.println("koko");
+        			masu[gyou][retu] = count;
+//        			System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
         			retu++;
         			d++;
         		}else {
         			masu[gyou][retu] = count;
-            		System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
+//            		System.out.println("masu[" + gyou + "][" + retu + "] = " + count);
             		gyou--;
         		}
         	}
@@ -80,7 +82,10 @@ public class No401 {
         // 出力
         for(int[] v : masu) {
         	for(int vv : v) {
-        		System.out.print(vv + " ");
+//        		System.out.print(vv + " ");
+        		System.out.printf("%03d ",vv);
+//        		System.out.print(" ");
+//        		System.out.printf("[%05d]",123);
         	}
         	System.out.println();
         }
