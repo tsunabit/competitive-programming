@@ -4,25 +4,21 @@ import java.math.*;
 
 public class No490 {
     public static void main(String[] args) {
-    	try {
-    		// 入力元がファイル
-        	File inputFile = new File("/Users/aa352872/Desktop/temp.txt");
-        	Scanner sc = new Scanner(inputFile);
-            // 標準入力から読み込む際に、Scannerオブジェクトを使う。
-//            Scanner sc = new Scanner(System.in);
-            int n = Integer.parseInt(sc.nextLine());
-            String[] a = sc.nextLine().split(" ");
-            int[] b = new int[n];
-            for(int i = 0; i < a.length; i++) {
-            	b[i] = Integer.parseInt(a[i]);
-            }
-            Arrays.sort(b);
-            for(int i = 0; i < n; i++) {
-            	System.out.print(b[i] + " ");
-            }
-            System.out.println("");
-    	}catch(Exception e) {
-    		
-    	}
+    	Scanner sc = new Scanner(System.in);
+    	int n=sc.nextInt(),a[]=new int[2000],t,i,j;
+		for(i=0;i<n;i++) a[i]=sc.nextInt();
+		sc.close();
+		for(i=1;i<2*n-3;i++) {
+			for(j=0;j<n;j++) {
+				if(i-j>n-1||0>i-j) continue;
+				if(a[i-j]>a[j]) {
+					t=a[j];
+					a[j]=a[i-j];
+					a[i-j]=t;
+				}
+			}
+		}
+		for(i=0;i<n-1;i++) System.out.print(a[i]+" ");
+		System.out.print(a[n-1]);
     }
 }
