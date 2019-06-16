@@ -5,15 +5,14 @@ import java.math.*;
 public class No526 {
     public static void main(String[] args) {
     	Scanner sc = new Scanner(System.in);
-    	int n = sc.nextInt();
-    	int m = sc.nextInt();
-    	long[] f = new long[n];
+    	int n = sc.nextInt(), m = sc.nextInt();
     	
-		f[0] = 0; f[1] = 1;
-		
-		for(int i = 2; i < n; i++){
-			f[i] = (f[i - 1] + f[i - 2]) % m;
-		}
-		System.out.println(f[n - 1]);
+    	if(n <= m) {
+    		System.out.println(1);
+    	}else if(n % 2 == 0 && (n / 2) <= m) {
+    		System.out.println(2);
+    	}else {
+    		System.out.println(-1);
+    	}
     }
 }
