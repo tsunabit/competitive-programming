@@ -14,15 +14,36 @@ public class No736 {
     	
     	int max = 0;
     	for(int i = n-1; i > 0; i--) {
-    		int syo = a[i] / a[i - 1];
-    		int ama = a[i] % a[i - 1];
+    		int si = a[i];
+    		int bo = a[i - 1];
+    		int ama = -1;
     		while(ama != 0) {
-    			System.out.println("syo = " + syo);
-    			System.out.println("ama = " + ama);
-    			syo = syo / ama;
-    			ama = syo % ama;
+    			ama = si % bo;
+    			if(ama == 0) {
+    				break;
+    			}else {
+    				bo = si;
+        			bo = ama;
+    			}
+    		};
+    		if(max == 0) {
+    			max = bo;
+    		}else if(max < bo) {
+    			if(bo % max == 0) {
+    				// nothing
+    			}else {
+    				max = 0;
+    				break;
+    			}
+    		}else if(max > bo) {
+    			if(max % bo == 0) {
+    				max = bo;
+    			}else {
+    				max = 0;
+    				break;
+    			}
     		}
-    		if(max < syo) max = syo;
+    		
     	}
     	System.out.println("max = " + max);
     	
