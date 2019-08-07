@@ -6,21 +6,33 @@ public class No825 {
     public static void main(String[] args) {
     	Scanner sc = new Scanner(System.in);
     	int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt();
-    	long k = a + (b * 10);
-    	long count = 100;
-    	long o = 0;
-    	for(long i = 1; i <= Math.pow(10, 100); i++) {
-    		if(i <= k) {
-    			long t = k - i;
-    			long tt = (t /10) + (t % 10);
-    			if(count > tt) {
-    				count = tt;
-    				o = i;
-    			}
-    		}else {
-    			break;
-    		}
+    	int kin = 999;
+    	int max = a + (10 * b);
+    	
+    	for(int k = 1; k <= max; k++) {
+    		for(int i = 0; i <= a; i++) {
+        		for(int j = 0; j <= b; j++) {
+        			int temp = i + (10 * j);
+        			if(k > temp || temp == 0) {
+        				continue;
+        			}else {
+        				int zan = temp - k;
+        				int mai;
+        				if(zan >= 10) mai = (zan / 10) + (zan % 10);
+        				else mai = zan;
+        				
+        				if(c == (a + b - i - j + mai) && kin > k) {
+        					kin = k;
+        				}
+        			}
+        		}
+        	}
     	}
-    	System.out.println(0);
+    	
+    	if(kin == 999) {
+    		System.out.println("Impossible");
+    	}else {
+    		System.out.println(kin);
+    	}
     }
 }
