@@ -12,16 +12,19 @@ public class No842 {
     	}
     	int[] coin = {500,100,50,10,5,1};
     	
+    	boolean f = false;
     	for(int i = 0; i < 6; i++) {
-    		while() {
-    			
+    		while(k[6] >= coin[i] && k[i] != 0 && k[6] != 0) {
+    			k[6] -= coin[i];
+    			k[i] -= 1;
+    		}
+    		if(k[6] == 0) {
+    			f = true;
+    			break;
     		}
     	}
     	
-    	
-    	for(int s : k) {
-    		System.out.println(s);
-    	}
-    	
+    	if(f) System.out.println("YES");
+    	else System.out.println("NO");
     }
 }
