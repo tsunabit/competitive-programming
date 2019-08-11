@@ -7,32 +7,25 @@ public class No3 {
     	Scanner sc = new Scanner(System.in);
     	int n = sc.nextInt();
     	// BFS
-    	boolean[] f = new boolean[n];
-    	// 配列の初期化
-    	Arrays.fill(f, false);
-    	f[0] = true;
-    	
-    	int count = 0;
-    	
+    	int[] step = new int[n];
+    	Arrays.fill(step, 0);
     	Queue<Integer> queue = new ArrayDeque<Integer>();
     	queue.add(1);
     	while(queue.peek() != null) {
-    		count++;
     		int t = queue.poll();
-    		System.out.println("tansaku = " + t);
     		if(t == n) {
-    			System.out.println(count);
+    			System.out.println(step[t - 1] + 1);
     			return;
     		}
     		int ido = Integer.toBinaryString(t).replaceAll("0", "").length();
     		int tugi = t + ido;
-    		if(tugi <= n && f[tugi - 1] == false) {
-    			f[tugi -1] = true;
+    		if(tugi <= n && step[tugi - 1] == 0) {
+    			step[tugi - 1] = step[t - 1] + 1;
     			queue.add(tugi);
     		}
     		tugi = t - ido;
-    		if(1 <= tugi && f[tugi -1] == false) {
-    			f[tugi -1] = true;
+    		if(1 <= tugi && step[tugi -1] == 0) {
+    			step[tugi - 1] = step[t - 1] + 1;
     			queue.add(tugi);
     		}
     	}
