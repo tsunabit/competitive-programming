@@ -5,7 +5,7 @@ import java.math.*;
 public class No01_factorial {
 	static String str = "";
     public static void main(String[] args) {
-    	System.out.println("factorial = " + factorial(9));
+    	System.out.println("factorial = " + factorial(4));
     }
     // 階乗
     static int factorial(int n) {
