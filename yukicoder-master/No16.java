@@ -12,8 +12,9 @@ public class No16 {
     	for(int i = 0; i < n; i++) {
     		//double t = Math.pow(x, sc.nextInt());
     		double t = pow(x, sc.nextLong());
-    		//System.out.println(t);
+//    		System.out.println(t);
     		total += t;
+    		
     	}
     	System.out.println("total = " + (total % w));
 	}
@@ -25,6 +26,7 @@ public class No16 {
     			ans = ans * x;
     		}
     		x = x * x;	// 2進数で考え、桁を上げるたびに底数をかけていく。一周する度にx, x^2, x^4, x^8となる
+    		System.out.println(x);
     		n >>= 1;	// 桁をずらす。「n = n >> 1」と同じ
     	}
     	return ans;
