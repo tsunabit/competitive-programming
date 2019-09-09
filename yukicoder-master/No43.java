@@ -3,6 +3,7 @@ import java.io.*;
 import java.math.*;
 
 public class No43 {
+	public static int ans = 99;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = Integer.parseInt(sc.nextLine());
@@ -11,43 +12,45 @@ public class No43 {
 			s[i] = sc.nextLine().split("");
 		}
 		dfs(s, n);
+		System.out.println(ans); 
 	}
 	
 	public static void dfs(String[][] s, int n) {
 		String[][] map1 = copy(s);
-		
-		//
-		System.out.println("きた");
-		for(int k = 0; k < n; k++) {
-			System.out.println(Arrays.toString(map1[k]));
-		}
-		//
 		for(int i = 0; i < n; i++) {
 			for(int j = 0; j < n; j++) {
-//				if(map1[i][j] == "-") {
 				if("-".equals(map1[i][j])) {
 					map1[i][j] = "o";
 					map1[j][i] = "x";
-					//
-//					for(int k = 0; k < n; k++) {
-//						System.out.println(Arrays.toString(map1[k]));
-//					}
-					//
 					dfs(map1, n);
-					
-					
 					map1[i][j] = "x";
 					map1[j][i] = "o";
-					//
-//					for(int k = 0; k < n; k++) {
-//						System.out.println(Arrays.toString(map1[k]));
-//					}
-					//
 					dfs(map1, n);
+					return;
 				}
 			}
 		}
-		System.out.println("owata");
+		
+		int[] kati = new int[n];
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < n; j++) {
+				if("o".equals(map1[i][j])) kati[i]++;
+			}
+		}
+		
+		int temp = kati[0];
+		int r = 1;
+		int ima = 99;
+		Arrays.sort(kati);
+		for(int i = n-1; i >= 0; i--) {
+			if(temp < kati[i] && ima > kati[i]) {
+				r++;
+				ima = kati[i];
+			}
+		}
+		if(ans > r) {
+			ans = r;
+		}
 	}
 	
 	static String[][] copy(String[][] from){
