@@ -8,15 +8,15 @@ public class No49 {
 		String s = sc.next();
 		
 		// indexはなかったら-1が帰る
-		int index = s.indexOf("*") < s.indexOf("+") ? s.indexOf("*") : s.indexOf("+");
-		
-		
-		System.out.println("index = " + index);
+		int index = 99;
+		if(s.indexOf("*") > -1) index = s.indexOf("*");
+		if(s.indexOf("+") > -1 && s.indexOf("+") < index) index = s.indexOf("+");
+
 		String t = s.substring(0, index);
 		int total = Integer.parseInt(t);
 		char k = 'a';
 		
-		for(int i = index+1; i < s.length(); i++) {
+		for(int i = index; i < s.length(); i++) {
 			if(s.charAt(i) == '+' || s.charAt(i) == '*') {
 				k = s.charAt(i);
 			}else {
