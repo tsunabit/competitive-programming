@@ -6,7 +6,6 @@ public class No49 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String s = sc.next();
-		
 		// indexはなかったら-1が帰る
 		int index = 99;
 		if(s.indexOf("*") > -1) index = s.indexOf("*");
@@ -14,19 +13,29 @@ public class No49 {
 
 		String t = s.substring(0, index);
 		int total = Integer.parseInt(t);
-		char k = 'a';
+		char k = s.charAt(index);
 		
-		for(int i = index; i < s.length(); i++) {
+		String temp = "";
+		for(int i = index+1; i < s.length(); i++) {
 			if(s.charAt(i) == '+' || s.charAt(i) == '*') {
+				// 計算する
+				int nikou = Integer.parseInt(temp);
+				if(k == '+') {
+					total = total * nikou;
+				}else {
+					total = total + nikou;
+				}
+				temp = "";
 				k = s.charAt(i);
 			}else {
-				if(k == '+') {
-					total = total * Integer.parseInt(String.valueOf(s.charAt(i)));
-				}else {
-					total = total + Integer.parseInt(String.valueOf(s.charAt(i)));
-				}
+				temp = temp + s.charAt(i);
 			}
 		}
+		// 最後を計算する
+		int nikou = Integer.parseInt(temp);
+		if(k == '+') total = total * nikou;
+		else total = total + nikou;
+
 		System.out.println(total);
 	}
 }
