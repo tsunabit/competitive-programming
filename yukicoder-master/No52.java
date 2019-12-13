@@ -3,27 +3,28 @@ import java.io.*;
 import java.math.*;
 
 public class No52 {
-//	public static int total = 0;
-	public static HashMap<String, String> hm = new HashMap<String, String>(); 
+	private static Set<String> set = new HashSet<String>();
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String s = sc.next();
-		int len = s.length();
-		String str = "";
-		dfs(s, 0, str);
-		System.out.println("total = " + hm.size());
+		dfs("", s);
+		System.out.println(set.size());
 	}
-	public static void dfs(String s, int count, String str) {
-		if (count == s.length()-1) {
-//            total++;
-			hm.put(str, str);
-            return;
-        }
-		// 前
-//		str += s.charAt(count+1);
-		dfs(s, count+1, str+s.charAt(count+1));
-        // 後
-//		str += s.charAt(s.length()-(s.length()-count));
-		dfs(s, count+1, str+s.charAt(s.length()-(s.length()-count)));
+	
+	public static void dfs(String kiridasi, String zan_str) {
+		//end
+		if(zan_str.length() == 0) {
+			set.add(kiridasi);
+			return;
+		}
+		//mae
+		String mae = kiridasi + zan_str.charAt(0);
+		StringBuilder sb_mae = new StringBuilder(zan_str);
+		dfs(mae, sb_mae.deleteCharAt(0).toString());
+		//ushiro
+		String ushiro = kiridasi + zan_str.charAt(zan_str.length() - 1);
+		StringBuilder sb_ushiro = new StringBuilder(zan_str);
+		dfs(ushiro, sb_ushiro.deleteCharAt(zan_str.length() - 1).toString());
+		
 	}
 }
