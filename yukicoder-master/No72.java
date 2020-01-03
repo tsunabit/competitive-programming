@@ -9,12 +9,12 @@ public class No72 {
 		long n = sc.nextLong();
 		long ans = 0;
 		long t = 1000007;
-		// 上の玉の数をiとする
-		for(int i = 1; i < n; i++) {
-//			long tmp = (i + 1) * (n - i + 1) -1;
-//			long tmp = ((i + 1) * (n - i + 1) -1) % t;
-			long tmp = (((i + 1) % t) * ((n - i + 1) % t) -1) % t;
-			ans = Math.max(ans, tmp);
+		// a個の時、a+1までの数を表現出来て、これが2箇所に分かれるとして、
+		// 均等に割った方が良いので、((N+1)/2+1)*(N/2+1)-1ですかね？
+		modを取るのだけ気を付けないとですね
+		ans = (((n / 2 + 1) % t) * ((n - (n / 2) + 1) % t) - 1) % t;
+		if(ans < 0) {
+			ans += t;
 		}
 		System.out.println(ans);
 	}
