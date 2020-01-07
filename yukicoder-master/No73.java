@@ -7,23 +7,26 @@ public class No73 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int[] a = new int[26];
-		int total = 1;
+		long total = 0;
 		for(int i = 0; i < 26; i++) {
 			a[i] = sc.nextInt();
 		}
-		System.out.println("hoge");
-		if(a[3]<1 || a[4]<1 || a[7]<1 || a[11]<3 || a[14]<2 || a[17]<1 || a[22]<1) {
-			System.out.println(0);
-			return;
+		// この問題は部分文字列
+		// lとo以外の文字
+		total = (long)a[3]*a[4]*a[7]*a[17]*a[22];
+		// lの最大
+		long maxl = 0;
+		for(int i = 2; i < a[11]; i++) {
+			long tmp = i * (i - 1) / 2 * (a[11] - i);
+			maxl = Math.max(maxl, tmp);
 		}
-		System.out.println("hogehoge");
-		if(a[3] > 1) total += a[3]-1;
-		if(a[4] > 1) total += a[4]-1;
-		if(a[7] > 1) total += a[7]-1;
-		if(a[11] > 3) total += (a[11]-1)*(a[11]-2)/2;
-		if(a[14] > 2) total += a[14] - 2;
-		if(a[17] > 1) total += a[17]-1;
-		if(a[22] > 1) total += a[22]-1;
+		// oの最大
+		long maxo = 0;
+		for(int i = 1; i < a[14]; i++) {
+			long tmp = i * (a[14] - i);
+			maxo = Math.max(maxo, tmp);
+		}
+		total = total * maxl * maxo;
 		System.out.println(total);
 	}
 }
