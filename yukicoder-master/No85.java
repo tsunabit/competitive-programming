@@ -17,11 +17,11 @@ public class No85 {
 	public static void DFS(int[][] a, int x, int y) {
 		if(x == 0) {
 			
-		}else if(x == m - 1) {
+		}else if(x == x - 1) {
 			
 		}else if(y == 0) {
 			
-		}else if(y == n - 1) {
+		}else if(y == y - 1) {
 			
 		}else {
 			
