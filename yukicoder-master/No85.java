@@ -37,9 +37,9 @@ public class No85 {
 			if(p == C) {
 				ANS = "YES";
 				// 最後の確認
-				System.out.println("終了確認 = " + p);
-				for(int a : ary) System.out.print(a + " ");
-				System.out.println("");
+//				System.out.println("終了確認 = " + p);
+//				for(int a : ary) System.out.print(a + " ");
+//				System.out.println("");
 				return;
 			}
        }
@@ -48,24 +48,24 @@ public class No85 {
 		
 		// 移動条件判定
 		// 上
-		if((p-M) > 0 && ary[p-3-1] == 0) {
-//			System.out.println("ue = " + p + " = " + (p-3));
+		if((p-M) > 0 && ary[p-M-1] == 0) {
+			System.out.println("ue = " + p + " = " + (p-M));
 			Integer[] ary2 = migula(ary);
-			ary2[p-3-1] = 1;
+			ary2[p-M-1] = 1;
 //			ue = true;
-			dfs(p-3, ary2);
+			dfs(p-M, ary2);
 		}
 		// 下
-		if((p+M) < N*M && ary[p+3-1] == 0) {
-//			System.out.println("si = " + p + " = " + (p+3));
+		if((p+M) < N*M && ary[p+M-1] == 0) {
+			System.out.println("si = " + p + " = " + (p+M));
 			Integer[] ary2 = migula(ary);
-			ary2[p+3-1] = 1;
+			ary2[p+M-1] = 1;
 //			si = true;
-			dfs(p+3, ary2);
+			dfs(p+M, ary2);
 		}
 		// 左
 		if(p%M != 1 && ary[p-1-1] == 0) {
-//			System.out.println("hi = " + p + " = " + (p-1));
+			System.out.println("hi = " + p + " = " + (p-1));
 			Integer[] ary2 = migula(ary);
 			ary2[p-1-1] = 1;
 //			hi = true;
@@ -73,7 +73,7 @@ public class No85 {
 		}
 		// 右
 		if(p%M != 0 && ary[p+1-1] == 0) {
-//			System.out.println("mi = " + p + " = " + (p+1));
+			System.out.println("mi = " + p + " = " + (p+1));
 			Integer[] ary2 = migula(ary);
 			ary2[p+1-1] = 1;
 //			mi = true;
