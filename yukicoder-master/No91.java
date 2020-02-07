@@ -13,6 +13,7 @@ public class No91 {
 		
 		int min = 99;
 		min = min(rgb);
+		// 1個1個1個の組み合わせを使う
 		if(min > 0) {
 			total += min;
 			for(int i = 0; i < rgb.length; i++) {
@@ -27,6 +28,8 @@ public class No91 {
 		System.out.println("max = " + max);
 		System.out.println("min = " + min);
 		
+		// todo 割る2して計算すると一発
+		// 奇数の時の扱いに注意
 		while(max > min && max >= 3) {
 			for(int i = 0; i < rgb.length; i++) {
 				if(rgb[i] == max) {
