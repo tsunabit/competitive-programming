@@ -19,15 +19,20 @@ public class No13_binary_search_nibuntansaku {
     	// 1つの要素に絞り込まれるまでの間ループ
     	while (low <= high) {
     		int mid = low + (high - low)/2;
+    		// 真ん中の要素を調べる
     		int guess = ary[mid];
+    		// アイテムを検出
     		if(guess == target) {
     			return mid;
+    		// 推測した数字が大きすぎた
     		}else if(guess > target) {
     			high = mid;
+    		// 推測した数字が小さすぎた
     		}else {
     			low = mid + 1;
     		}
     	}
+    	// アイテムが存在しない場合
     	return -1;
     }
 }
