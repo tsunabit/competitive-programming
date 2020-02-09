@@ -9,72 +9,15 @@ public class No91 {
 		for(int i = 0; i < rgb.length; i++) {
 			rgb[i] = sc.nextInt();
 		}
-		int total = 0;
-		
-		int min = 99;
-		min = min(rgb);
-		// 1個1個1個の組み合わせを使う
-		if(min > 0) {
-			total += min;
-			for(int i = 0; i < rgb.length; i++) {
-				rgb[i] = rgb[i] - min;
+		while(true){
+			Arrays.sort(rgb);
+			if(rgb[2]-rgb[0] <= 2){
+				break;
+			}else{
+				rgb[0] += 1;
+				rgb[2] -= 2;
 			}
 		}
-		int max = 0;
-		
-		min = min(rgb);
-		max = max(rgb);
-		
-		System.out.println("max = " + max);
-		System.out.println("min = " + min);
-		
-		// todo 割る2して計算すると一発
-		// 奇数の時の扱いに注意
-		while(max > min && max >= 3) {
-			for(int i = 0; i < rgb.length; i++) {
-				if(rgb[i] == max) {
-					rgb[i] = rgb[i] - 2;
-					break;
-				}
-			}
-			for(int i = 0; i < rgb.length; i++) {
-				if(rgb[i] == min) {
-					rgb[i] = rgb[i] + 1;
-					break;
-				}
-			}
-			min = min(rgb);
-			max = max(rgb);
-			System.out.println("max = " + max);
-			System.out.println("min = " + min);
-		}
-		// 同じ処理を2解している
-		min = min(rgb);
-		if(min > 0) {
-			total += min;
-			for(int i = 0; i < rgb.length; i++) {
-				rgb[i] = rgb[i] - min;
-			}
-		}
-		
-		for(int a : rgb) System.out.print(a + " ");
-		System.out.println("");
-		
-		System.out.println(total);
-		
-	}
-	public static int min(int[] ary) {
-		int min = 99;
-		for(int i = 0; i < ary.length; i++) {
-			if(min > ary[i]) min = ary[i];
-		}
-		return min;
-	}
-	public static int max(int[] ary) {
-		int max = 0;
-		for(int i = 0; i < ary.length; i++) {
-			if(max < ary[i]) max = ary[i];
-		}
-		return max;
+		System.out.println(rgb[0]);
 	}
 }
