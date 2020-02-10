@@ -44,10 +44,15 @@ public class No92 {
 //			System.out.print("ans = " + ans + " ");
 //		}
 //		System.out.print("");
-		int[] an = set.toArray();
+//		int[] an = set.toArray(new int[set.size()]);
+		Integer[] an = set.toArray(new Integer[set.size()]);
 //		list.toArray(new String[list.size()]);
 		Arrays.sort(an);
-		System.out.println(Arrays.toString(an));
+		System.out.println(an.length);
+		for(int i = 0; i < an.length; i++) {
+			System.out.print(an[i] + " ");
+		}
+		System.out.println("");
 		
 	}
 	public static void mo(int[] a, ArrayList<Integer> al,int[] d, int c, Set<Integer> set) {
