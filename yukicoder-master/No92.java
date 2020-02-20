@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.math.*;
 
+// time outする
 public class No92 {
 	static int K;
 	public static void main(String[] args) {
