@@ -17,8 +17,7 @@ public class No12_permutation {
         // General Case
         else {
             for (int i = 0; i < q.length(); i++) {
-                permutation(q.substring(0, i) + q.substring(i + 1),
-                        ans + q.charAt(i));
+                permutation(q.substring(0, i) + q.substring(i + 1), ans + q.charAt(i));
             }
         }
     }
