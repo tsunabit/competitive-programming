@@ -6,7 +6,7 @@ public class No736 {
     public static void main(String[] args) {
     	try {
     		// 入力元がファイルの場合
-    		 Scanner sc = new Scanner(new File("/Users/aa352872/Desktop/test"));
+    		 Scanner s = new Scanner(new File("/Users/aa352872/Desktop/test"));
     	} catch(Exception e) {
     		System.out.println("例外が発生しました。");
             System.out.println(e);
