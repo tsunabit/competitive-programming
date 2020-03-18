@@ -25,4 +25,11 @@ public class No03_bitFullSearch {
 			System.out.println(ans);
 		}
     }
+    // ビット全探索の2パターン目
+    // 最初のfor文の継続条件が違うだけだった
+    static void bitFullSearch2(String[] ar, int n) {
+    	for (int i = 0; i < (1 << n); ++i) {
+    		
+    	}
+    }
 }
